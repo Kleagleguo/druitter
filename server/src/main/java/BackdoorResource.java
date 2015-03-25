@@ -10,11 +10,11 @@ import javax.ws.rs.core.Response;
 @Path("/backdoor")
 public class BackdoorResource {
 
-	@GET
-	@Produces("text/plain")
-	public Response doGet() {
-		System.out.println("|| do get");
-		return Response.ok("You've reached the backdoor").build();
-	}
+  @GET
+  @Produces("text/plain")
+  public Response doGet() {
+    System.out.println("|| do get");
+    return Response.ok("You've reached the backdoor").build();
+  }
 
 }

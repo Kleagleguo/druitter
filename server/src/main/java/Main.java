@@ -13,21 +13,21 @@ import java.util.EnumSet;
  */
 public class Main {
 
-	public static void main(String args[]) {
+  public static void main(String args[]) {
 
-		Injector injector = Guice.createInjector(new DruitterServerModule());
+    Injector injector = Guice.createInjector(new DruitterServerModule());
 
-		Server server = new Server(8080);
+    Server server = new Server(8080);
 
-		ServletContextHandler servletContextHandler = new ServletContextHandler(server, "/", ServletContextHandler.SESSIONS);
-		servletContextHandler.addFilter(GuiceFilter.class, "/*", EnumSet.allOf(DispatcherType.class));
+    ServletContextHandler servletContextHandler = new ServletContextHandler(server, "/", ServletContextHandler.SESSIONS);
+    servletContextHandler.addFilter(GuiceFilter.class, "/*", EnumSet.allOf(DispatcherType.class));
 
-		servletContextHandler.addServlet(DefaultServlet.class, "/");
-		try {
-			server.start();
-			server.join();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    servletContextHandler.addServlet(DefaultServlet.class, "/");
+    try {
+      server.start();
+      server.join();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }

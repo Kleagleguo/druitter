@@ -8,13 +8,13 @@ import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
  */
 public class DruitterServerModule extends JerseyServletModule {
 
-	@Override
-	protected void configureServlets() {
-		System.out.println("here");
-		Binder binder = binder();
-		binder.bind(GuiceContainer.class);
-		serve("/*").with(GuiceContainer.class);
+  @Override
+  protected void configureServlets() {
+    System.out.println("here");
+    Binder binder = binder();
+    binder.bind(GuiceContainer.class);
+    serve("/*").with(GuiceContainer.class);
 
-		binder.bind(BackdoorResource.class).in(Singleton.class);
-	}
+    binder.bind(BackdoorResource.class).in(Singleton.class);
+  }
 }
